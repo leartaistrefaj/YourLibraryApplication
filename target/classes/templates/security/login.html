@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Login</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{CSS/security-layout.css}">
+</head>
+<body>
+    <div class="logo">
+        <h1 id="title">Your Library</h1>
+    </div>
+<div class="wrapper">
+    <div class="container">
+        <form name="f" th:action="@{/login}" method="POST">
+
+            <div th:if="${param.error}" class="alert alert-error">
+                <p class="incorrect" style="text-align: center; margin-left: 50px">Invalid username and password.</p>
+            </div>
+
+            <div th:if="${param.logout}" class="alert alert-success">
+                <p class="logout" style="text-align: center; margin-left: 50px"> You have been logged out.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="username">Username</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="username" name="username"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col-75">
+                    <input type="password" id="password" name="password"/>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <input type="submit" value="Login">
+            </div>
+
+        </form>
+
+        <form th:action="@{/register}" method="GET">
+            <div class="row">
+
+                <input type="submit" value="Sign Up">
+
+            </div>
+        </form>
+
+
+    </div>
+</div>
+</body>
+</html>
